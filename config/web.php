@@ -72,7 +72,9 @@ $config = [
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) {
+    // Переменная окружения ENVIRONMENT введена для автоматизации перевода
+    // фреймворка в PROD-режим при выгрузке на тестовый сайт.
+if (getenv('ENVIRONMENT') == "DEV" && YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
